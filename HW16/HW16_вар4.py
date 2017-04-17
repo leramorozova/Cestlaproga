@@ -7,13 +7,12 @@
 import os
 import re
 
-i=0
-files=os.listdir()
-name_base=[]
 for item in files:
     file_name=item.split('.')
     if len(file_name[0])==5:
-        i+=1
+        lat=re.search('[A-Za-z]{5}', file_name[0])
+        if lat!=None:
+            i+=1
     if file_name[0] not in name_base:
         name_base.append(file_name[0])
 
